@@ -1,0 +1,112 @@
+:root {
+    --neon-green: #00ff41;
+}
+
+/* =========================================
+   SKILLS GRID LAYOUT 
+   ========================================= */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+/* =========================================
+   GLASS CARD STYLING
+   ========================================= */
+.skill-glass-card {
+    background: var(--bg-dark);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect for the cards */
+.skill-glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 65, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.08);
+}
+
+/* Card Icon & Title */
+.skill-icon {
+    font-size: 2rem;
+    color: var(--neon-green);
+    margin-bottom: 1.2rem;
+}
+
+.skill-glass-card h4 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   THE "PILLS" & TYPOGRAPHY (Your Request)
+   ========================================= */
+/* 1. The general description text */
+/* MAIN DESCRIPTION BLOCK INSIDE CARDS */
+.skill-glass-card .tech-type-p {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    text-align: left; /* Overrides inherited centering from the card */
+}
+
+/* Each tag + description line */
+.skill-item {
+    display: flex;
+    flex-direction: column; /* Forces description to a new line */
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: left; /* Ensures both pill and desc start at the line beginning */
+}
+
+.skill-desc {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 0.75rem;
+    border-left: 1px solid rgba(0, 255, 65, 0.2); /* Visual connection to the pill */
+}
+
+/* 2. Transforming the <strong> tags into Pills */
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(0, 255, 65, 0.06);
+    color: var(--neon-green);
+    border: 1px solid rgba(0, 255, 65, 0.18);
+    padding: 0.18rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-right: 0;
+    margin-bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.03);
+    white-space: nowrap;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Fallback: style <strong> similarly if markup hasn't been updated */
+.skill-glass-card .tech-type-p strong {
+    all: unset;
+    display: inline-block;
+}

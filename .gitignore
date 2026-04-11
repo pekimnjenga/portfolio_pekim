@@ -1,0 +1,26 @@
+# --- Python & Flask ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environment ---
+# Crucial: Never push your local venv to GitHub
+venv/
+env/
+.venv/
+ENV/
+
+# --- Databases ---
+# If you use SQLite locally for testing
+*.db
+*.sqlite3
+instance/
+
+# --- IDE & OS Junk ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+

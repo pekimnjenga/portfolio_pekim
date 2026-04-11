@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="page-main" role="main">
+  <div class="hero-container">
+    <section class="hero-section" aria-labelledby="hero-heading">
+      
+      <div class="hero-left reveal-left">
+        <header>
+          <p class="hero-greeting tech-type" data-text='System.initialize("Hello")'>System.initialize("Hello")</p>
+          <h1 id="hero-heading" class="hero-name">I’m <span class="brand-accent">PEKIM</span></h1>
+          <p class="hero-role tech-type" data-text="Full Stack Web Developer | Software Engineer | Aspiring Data Scientist">
+            Full Stack Web Developer <span class="silver-divider">|</span> Software Engineer <span class="silver-divider">|</span> Aspiring Data Scientist
+          </p>
+        </header>
+        
+        <p class="hero-description tech-type-p" data-text="I build elegant, high-performance web applications with a focus on backend reliability and polished user experiences.">
+          I build elegant, high-performance web applications with a focus on 
+          <span class="text-highlight">backend reliability</span> and 
+          <span class="text-highlight">polished user experiences</span>.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="/projects" class="btn-primary-tech" role="button">
+            VIEW MY PROJECTS
+          </a>
+          <a href="/contact" class="btn-secondary-glass" role="button">
+            CONTACT
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-right reveal-right">
+        <div class="profile-wrap glass-card">
+          <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Portrait of PEKIM" class="profile-img">
+        </div>
+      </aside>
+      
+    </section>
+  </div>
+
+  <div class="tech-footer-accent reveal-up" aria-hidden="true">
+    <div class="line"></div>
+    <div class="portfolio-year">
+      <span class="dot pulse"></span> PORTFOLIO 2026
+    </div>
+    <div class="line"></div>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="page-main">
+  <div class="hero-container">
+    <section class="about-section hero-section mb-5">
+      <div class="about-container">
+        
+        <header class="about-header text-center text-md-start reveal-left">
+          <p class="hero-greeting tech-type" data-text="System.bio">System.bio</p>
+          <h2 class="hero-name">MY <span class="brand-accent">BIOGRAPHY</span></h2>
+        </header>
+
+        <div class="about-flex-wrapper">
+          
+          <div class="hero-left-content reveal-left">
+            <div class="about-glass-card glass-card">
+              <p class="hero-description tech-type-p" data-text="I'm Pekim, a full-stack developer and software engineer with a passion for crafting seamless digital experiences. I am also a student at the Jomo Kenyatta University of Agriculture and Technology, where I am pursuing a degree in Statistics.">
+                I'm <span class="text-highlight">Pekim</span>, a full-stack Python developer and software engineer with a passion for crafting seamless digital experiences. I am also a student at the Jomo
+                Kenyatta University of Agriculture and Technology, where I am pursuing a degree in Statistics. 
+              </p>
+              <p class="hero-description tech-type-p" data-text="I specialize in transforming complex requirements into smooth, user-centric digital experiences. Whether I’m designing secure API integrations, managing databases, building scalable web platforms, or leveraging cloud-native infrastructure, my focus remains on technical excellence and rapid execution. I pride myself on delivering polished, high-quality systems that drive business value and exceed expectations.">
+                I specialize in transforming complex requirements into smooth, user-centric digital experiences. Whether I’m designing secure API integrations, managing databases, building scalable web platforms, or leveraging cloud-native infrastructure, my focus remains on technical excellence and rapid execution. I pride myself on delivering polished, high-quality systems that drive business value and exceed expectations.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-right-image reveal-right">
+            <div class="profile-wrap glass-card">
+              <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="PEKIM" class="profile-img">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="hobbies-section mt-5">
+        <div class="text-center mb-5 reveal-up">
+            <p class="hero-greeting tech-type" data-text="Personal.interests">Personal.interests</p>
+            <h3 class="hero-name" style="font-size: 2.5rem;">HOBBIES & <span class="brand-accent">INTERESTS</span></h3>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-glass-card glass-card reveal-up">
+                <div class="skill-icon icon-glow"><i class="fas fa-futbol"></i></div>
+                <h4 class="tech-type" data-text="1. Playing football">1. Playing football</h4>
+                <p class="tech-type-p text-secondary-alt">Maintaining physical health and enjoying the spirit of competition on the field.</p>
+            </div>
+
+            <div class="skill-glass-card glass-card reveal-up">
+                <div class="skill-icon icon-glow"><i class="fas fa-search"></i></div>
+                <h4 class="tech-type" data-text="2. Doing broad-based research">2. Doing broad-based research</h4>
+                <p class="tech-type-p text-secondary-alt">A lifelong learner who enjoys deep-diving into diverse subjects. I’m constantly exploring new topics—whether it's understanding political systems, studying geography, or keeping up with scientific discoveries.</p>
+            </div>
+
+            <div class="skill-glass-card glass-card reveal-up">
+                <div class="skill-icon icon-glow"><i class="fas fa-walking"></i></div>
+                <h4 class="tech-type" data-text="3. Walking">3. Walking</h4>
+                <p class="tech-type-p text-secondary-alt">A great way to clear my mind, reflect, and find creative inspiration.</p>
+            </div>
+        </div>
+    </section>
+
+
+  </div>
+
+  <div class="text-center mt-5 reveal-up">
+    <a href="/resume" class="btn-primary-tech" style="text-decoration: none; display: inline-block;">
+        <i class="bi bi-file-earmark-person"></i> VIEW TECHNICAL DOSSIER
+    </a>
+  </div>
+
+  <div class="tech-footer-accent reveal-up">
+    <div class="line"></div>
+    <div class="portfolio-year"><span class="dot pulse"></span> PORTFOLIO 2026</div>
+    <div class="line"></div>
+  </div>
+</main>
+{% endblock %}

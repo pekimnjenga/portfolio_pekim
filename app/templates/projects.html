@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="page-main">
+  <div class="hero-container">
+    
+    <header class="text-center mb-5">
+      <p class="hero-greeting">System.deployments()</p>
+      <h2 class="hero-name">PROJECT <span class="brand-accent">LOGS</span></h2>
+      <p class="hero-description mx-auto" style="max-width: 600px;">
+        A showcase of full-stack applications, focused on <span class="text-highlight">backend reliability</span>, 
+        secure payment integrations, and optimized user experiences.
+      </p>
+    </header>
+
+    <div class="projects-grid">
+      
+      <article class="project-card">
+        <div class="project-image-wrap">
+          <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Real Estate" class="project-img">
+          <div class="project-overlay">
+            <span class="tech-badge">Flask  • Tailwind CSS • Javascript(ES6+) • HTML5/CSS3 • Truehost's PostgreSQL • Cloudflare R2</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">I Like It Properties</h3>
+          <div class="project-excerpt">
+                    Architected a high-performance Real Estate SEO-optimized & CMS platform featuring a dual-interface system for public property browsing and secure administrative content management. Engineered a robust asset pipeline using <strong>Cloudflare R2 (S3-compatible)</strong> for distributed storage and <strong>PostgreSQL</strong> for relational data integrity.
+                </div>
+                
+                <div class="tech-stack-line mb-3">
+                    <span class="text-neon x-small fw-bold" style="font-size: 0.75rem;"><i class="bi bi-gear-fill me-1"></i> OPTIMIZATION LAYER:</span>
+                    <p class="x-small text-secondary-alt mb-0" style="font-size: 0.8rem;">
+                        Implemented <span class="text-white fw-bold">Hotwire Turbo</span> and <span class="text-white fw-bold">instant.page</span> for sub-100ms perceived latency, alongside fragment-level template caching. Engineered a <span class="text-white fw-bold">GitHub Actions</span> pipeline(CI) for automated quality gates (Pytest, Mypy, Ruff) and <span class="text-white fw-bold">Continuous Deployment (CD)</span> directly to Truehost production servers.
+                    </p>
+                </div>
+
+          <div class="project-links">
+            <a href="https://ilikeitproperties.com" target="_blank" class="view-link live">LAUNCH SYSTEM <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image-wrap">
+          <img src="{{ url_for('static', filename='images/logo2.jpg') }}" alt="Ecommerce" class="project-img">
+          <div class="project-overlay">
+            <span class="tech-badge">Django • Javascript(ES6+) • HTML5/CSS3/Bootstrap 5 • M-Pesa API  • Supabase R2 and Database</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Sports E-commerce</h3>
+           <div class="project-excerpt">
+                    A high-performance Django e-commerce engine optimized for sports retail, featuring a conversion-centric UI and a responsive, media-rich product catalog. The architecture leverages <span class="text-highlight">Supabase</span> for unified database and asset management, paired with a custom <span class="text-highlight">M-PESA Daraja API</span> integration for automated STK push orchestration.
+                </div>
+
+
+          <div class="project-links">
+            <a href="#" target="_blank" class="view-link live">ONGOING PROJECT</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image-wrap">
+          <img src="{{ url_for('static', filename='images/bmi_image.jpg') }}" alt="BMI App" class="project-img">
+          <div class="project-overlay">
+            <span class="tech-badge">Flask • JSON • HTML5/CSS3/Bootstrap 5 • Health Analytics </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Health Analytics Tool</h3>
+          <p class="project-excerpt">A health informatics tool that computes BMI and dynamically renders clinical insights via a JSON-mapped logic engine. Strictly aligned with WHO protocols for adults(20-64 years old).</p>
+          
+                <div class="methodology-note mb-3 p-3" style="background: rgba(0, 255, 65, 0.03); border-left: 2px solid var(--neon-green); border-radius: 4px;">
+                    <p class="text-white small fw-bold mb-1"><i class="bi bi-graph-up me-2"></i> Statistical Methodology:</p>
+                    <p class="x-small text-secondary-alt mb-0" style="font-size: 0.75rem;">
+                        The <span class="text-white fw-bold">LMS Method(L-transformation, M-median, S-coefficient of variation)</span> serves as the computational engine for the roadmap below, transforming skewed biological distributions into standard normal Z-scores to derive precise percentiles across varying demographics.
+                    </p>
+                </div>
+          
+          <div class="mt-3 mb-4">
+              <p class="text-neon small fw-bold text-uppercase mb-1" style="font-size: 0.7rem;">Ongoing Data Science Implementation:</p>
+              <p class="text-secondary-alt x-small mb-0" style="font-size: 0.75rem;">
+                Pediatric Logic(CDC/WHO LMS method) •	Athlete-aware variance overrides (LMS method) • Predictive Health Risk Modeling (ML) • Population Density Analysis • Geriatric functioal indicators • AI-Driven Lifestyle Personalization
+              </p>
+          </div>
+
+          <div class="project-links">
+            <a href="https://bmi-calculator-wa6k.onrender.com" target="_blank" class="view-link live">LAUNCH SYSTEM <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="tech-footer-accent">
+    <div class="line"></div>
+    <div class="portfolio-year"><span class="dot pulse"></span> REPOSITORY 2026</div>
+    <div class="line"></div>
+  </div>
+</main>
+{% endblock %}

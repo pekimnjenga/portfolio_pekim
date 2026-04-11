@@ -1,0 +1,223 @@
+/* CYBER-LUXE THEME CONFIGURATION */
+:root {
+    --neon-green: #00ff41;
+    --dark-bg: #0d0d0d;
+    --glass-card: rgba(10, 10, 10, 0.75); 
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0; 
+    --border-glow: rgba(0, 255, 65, 0.2);
+    --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /* Apple-style spring physics */
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+/* PREMIUM GLASSMORPHISM CARDS */
+.glass-card {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HOLOGRAPHIC HOVER LIFT */
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 65, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.08);
+}
+
+/* Standardizing Card Titles across the resume */
+.glass-card h3, .glass-card h5 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
+    display: block;
+    width: 100%;
+}
+
+.glass-card .skill-icon {
+    margin-top: 0;
+}
+
+/* DIRECTIONAL REVEAL ANIMATIONS (Spring Physics) */
+.reveal-up, .reveal-left, .reveal-right {
+    opacity: 0;
+    transition: all 1.2s var(--spring-bounce);
+}
+
+.reveal-up { transform: translateY(60px); }
+.reveal-left { transform: translateX(-60px); }
+.reveal-right { transform: translateX(60px); }
+
+/* The Active State (Triggered by JS) */
+.reveal-up.active, .reveal-left.active, .reveal-right.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* TYPEWRITER CURSOR */
+.type-ready::after {
+    content: '_';
+    animation: blink 0.8s infinite;
+    color: var(--neon-green);
+    margin-left: 4px;
+}
+
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+/* TEXT & LABELS */
+.text-neon { color: var(--neon-green) !important; }
+.text-secondary-alt { color: var(--text-secondary) !important; }
+
+/* =========================================
+   SKILLS GRID LAYOUT (Copied from about.css)
+   ========================================= */
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =========================================
+   GLASS CARD STYLING (Copied from about.css)
+   ========================================= */
+.skill-glass-card {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Ensure content is left-aligned within the card */
+}
+
+/* Hover effect for the cards (Copied from about.css) */
+.skill-glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 65, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.08);
+}
+
+/* Card Icon & Title (Copied from about.css) */
+.skill-icon {
+    font-size: 2rem;
+    color: var(--neon-green);
+    margin-bottom: 1.2rem;
+}
+
+.skill-glass-card h4 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
+}
+
+/* MAIN DESCRIPTION BLOCK INSIDE CARDS (Copied from about.css) */
+.skill-glass-card .tech-type-p {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Each tag + description line (Copied from about.css) */
+.skill-item {
+    display: flex;
+    flex-direction: column; /* Forces description to a new line */
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: left; /* Ensures both pill and desc start at the line beginning */
+}
+
+.skill-desc {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 0.75rem;
+    border-left: 1px solid rgba(0, 255, 65, 0.2); /* Visual connection to the pill */
+}
+
+/* 2. Transforming the <strong> tags into Pills (Copied from about.css) */
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(0, 255, 65, 0.06);
+    color: var(--neon-green);
+    border: 1px solid rgba(0, 255, 65, 0.18);
+    padding: 0.18rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-right: 0;
+    margin-bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.03);
+    white-space: nowrap;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.skill-pill:hover {
+    background: rgba(0, 255, 65, 0.15);
+    border-color: var(--neon-green);
+}
+.v-link {
+    color: var(--neon-green);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: opacity 0.2s ease;
+}
+
+/* PROJECT ENTRY REFINEMENT */
+.project-desc {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.v-link:hover { opacity: 0.7; }
+
+.cert-list li {
+    padding-bottom: 8px;
+    color: var(--text-secondary);
+}
