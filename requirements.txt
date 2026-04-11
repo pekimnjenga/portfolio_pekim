@@ -12,6 +12,8 @@ click==8.3.1
     # via flask
 flask==3.1.2
     # via -r requirements.in
+gunicorn==25.3.0
+    # via -r requirements.in
 itsdangerous==2.2.0
     # via flask
 jinja2==3.1.6
@@ -21,5 +23,7 @@ markupsafe==3.0.3
     #   flask
     #   jinja2
     #   werkzeug
+packaging==26.0
+    # via gunicorn
 werkzeug==3.1.4
     # via flask
