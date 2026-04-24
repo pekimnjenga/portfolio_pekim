@@ -10,7 +10,7 @@ A high-performance, responsive portfolio built with a **Cyber-Luxe** aesthetic
 
 
 ## Live Access
-**View the live site here:** [My Portfolio](https://portfolio-pekim.onrender.com)
+**View the live site here:** [My Portfolio](https://portfolio-pekim.vercel.app/)
 
 
 
