@@ -3,16 +3,12 @@ from flask import Flask
 from app.routes import main
 
 def create_app(config=None):
-    # Get the absolute path to the directory containing __init__.py (which is 'app')
-    app_dir = os.path.abspath(os.path.dirname(__file__))
-    # Construct the absolute paths to the static and templates folders
-    static_folder_path = os.path.join(app_dir, 'static')
-    template_folder_path = os.path.join(app_dir, 'templates')
-
+    # Use absolute paths to ensure the Vercel serverless function locates folders correctly
+    app_root = os.path.dirname(os.path.abspath(__file__))
     app = Flask(__name__,
-                static_folder=static_folder_path,
+                static_folder=os.path.join(app_root, 'static'),
                 static_url_path='/static',
-                template_folder=template_folder_path)
+                template_folder=os.path.join(app_root, 'templates'))
 
     # Register blueprints
     app.register_blueprint(main)
