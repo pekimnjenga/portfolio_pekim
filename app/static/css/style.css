@@ -12,6 +12,7 @@
 }
 
 /* 1. Global & Animated Background */
+html,
 body {
   margin: 0;
   min-height: 100vh;
@@ -30,7 +31,9 @@ body {
 
 /* 2. HUD Navbar */
 .custom-navbar {
-  backdrop-filter: blur(15px);
+  background: rgba(10, 10, 10, 0.5); /* Semi-transparent glass base */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   padding: 1rem 0;
   z-index: 1000;
@@ -55,6 +58,59 @@ body {
   background: var(--neon); transition: var(--transition);
 }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; left: 0; }
+
+/* Hamburger visibility transition */
+.navbar-toggler {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.navbar-toggler.is-hidden { opacity: 0; visibility: hidden; }
+
+/* Mobile Overlay Menu */
+@media (max-width: 991px) {
+  .brand-container { max-width: 250px; }
+  .brand-tagline { white-space: normal; line-height: 1.4; }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: 0;      /* Anchor strictly to the right edge */
+    transform: translateX(100%); /* Move off-screen to the right by its own width */
+    visibility: hidden;         /* Prevent interaction and accidental visibility */
+    left: auto;
+    width: 65%;   /* Covers a little more than half for better readability */
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.85); /* Reduced transparency for better contrast */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid var(--glass-border);
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 100px 40px; /* Space for the close button and elegance */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.5s;
+    z-index: 2000;
+  }
+
+  .navbar-collapse.active { transform: translateX(0); visibility: visible; }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .btn-close-custom {
+    background: none; border: none; color: var(--neon);
+    font-size: 1.8rem; cursor: pointer;
+    transition: var(--transition);
+  }
+  .btn-close-custom:hover { transform: rotate(90deg); color: var(--white); }
+
+  .navbar-nav { width: 100%; align-items: flex-start !important; }
+  .nav-link { font-size: 1rem !important; margin: 1rem 0 !important; padding: 5px 0 !important; border-bottom: 1px solid rgba(0, 255, 136, 0.05); width: 100%; }
+  .nav-link::after { bottom: 0 !important; }
+}
 
 /* 3. Hero Layout (The Centering Fix) */
 .page-main { padding: 60px 0; flex: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -157,15 +213,23 @@ body {
 
 .profile-wrap {
   width: 320px; height: 450px; position: relative; border-radius: 20px;
-  background: var(--bg-panel); border: 1px solid var(--glass-border);
+  background: linear-gradient(110deg, var(--bg-panel) 8%, rgba(20, 20, 20, 0.9) 18%, var(--bg-panel) 33%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-deep); padding: 12px; transition: var(--transition);
 }
+@keyframes shimmer { to { background-position-x: -200%; } }
+
 .profile-wrap::before, .profile-wrap::after {
   content: ''; position: absolute; width: 40px; height: 40px; border: 2px solid var(--neon); opacity: 0.3;
 }
 .profile-wrap::before { top: -5px; left: -5px; border-right: 0; border-bottom: 0; }
 .profile-wrap::after { bottom: -5px; right: -5px; border-left: 0; border-top: 0; }
-.profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.profile-img { 
+  width: 100%; height: 100%; object-fit: cover; border-radius: 12px; 
+  display: block;
+}
 .profile-wrap:hover { transform: translateY(-10px) rotate(1deg); border-color: var(--neon); box-shadow: var(--shadow-deep), var(--shadow-glow); }
 
 
@@ -351,7 +415,8 @@ body {
 .profile-img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover; /* Prevents stretching */
+  object-fit: cover;
+  image-rendering: auto; /* Ensures browser handles partial paints naturally */
   object-position: center;
   border-radius: 4px;
   filter: none !important;
@@ -530,15 +595,16 @@ body {
   height: 220px;
   position: relative;
   overflow: hidden;
-  background: #000;
+  background: linear-gradient(110deg, var(--bg-panel) 8%, rgba(20, 20, 20, 0.9) 18%, var(--bg-panel) 33%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
 }
 
 .project-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.7; /* Subtly darker to make the overlay pop */
-  transition: 0.6s ease;
+  transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-img {

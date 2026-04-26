@@ -86,4 +86,50 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, 2500);
+
+    // 4. MOBILE NAVBAR OVERLAY LOGIC
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const navCollapse = document.getElementById('navbarNav');
+
+    if (mobileToggle && navCollapse) {
+        mobileToggle.addEventListener('click', () => {
+            navCollapse.classList.add('active');
+            mobileToggle.classList.add('is-hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scroll
+        });
+    }
+
+    if (closeMenu && navCollapse) {
+        closeMenu.addEventListener('click', () => {
+            navCollapse.classList.remove('active');
+            mobileToggle.classList.remove('is-hidden');
+            document.body.style.overflow = ''; // Unlock background scroll
+        });
+    }
+
+    // Close menu when a link is clicked
+    navCollapse?.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navCollapse.classList.remove('active');
+            mobileToggle.classList.remove('is-hidden');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // 5. SMART IMAGE OPTIMIZATION ENGINE
+    const optimizeImages = () => {
+        const images = document.querySelectorAll('img');
+        
+        images.forEach((img, index) => {
+            // Prioritize the first image (usually Hero/Profile) for immediate fetch
+            if (index === 0) {
+                img.fetchPriority = "high";
+            } else {
+                img.loading = "lazy";
+            }
+        });
+    };
+
+    optimizeImages();
 });
