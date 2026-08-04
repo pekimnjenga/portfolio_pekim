@@ -2,6 +2,8 @@
 {% block content %}
 <main class="page-main">
   <div class="hero-container">
+    
+    <!-- BIOGRAPHY SECTION -->
     <section class="about-section hero-section mb-5">
       <div class="about-container">
 
@@ -12,29 +14,25 @@
 
         <div class="about-flex-wrapper">
 
+          <!-- Left Column: Story & Philosophy -->
           <div class="hero-left-content reveal-left">
             <div class="about-glass-card glass-card">
               <p class="hero-description tech-type-p"
-                data-text="I'm Pekim, a full-stack developer and software engineer with a passion for crafting seamless digital experiences. I am also a student at the Jomo Kenyatta University of Agriculture and Technology, where I am pursuing a degree in Statistics.">
-                I'm <span class="text-highlight">Pekim</span>, a full-stack Web developer and software engineer with
-                a passion for crafting seamless digital experiences. I am also a student at the Jomo
-                Kenyatta University of Agriculture and Technology, where I am pursuing a degree in Statistics.
+                data-text="I'm Pekim, a Full-Stack Engineer and Software Developer combining web technologies with quantitative analysis. Pursuing a B.Sc. in Statistics at Jomo Kenyatta University of Agriculture and Technology (JKUAT), I bridge the gap between complex data workflows and responsive, user-facing applications.">
+                I'm <span class="text-highlight">Pekim</span>, a Full-Stack Engineer and Software Developer combining web technologies with quantitative analysis. Pursuing a <span class="text-white fw-bold">B.Sc. in Statistics</span> at Jomo Kenyatta University of Agriculture and Technology (JKUAT), I bridge the gap between complex data workflows and responsive, user-facing applications.
               </p>
+              
               <p class="hero-description tech-type-p"
-                data-text="I specialize in transforming complex requirements into smooth, user-centric digital experiences. Whether I’m designing secure API integrations, managing databases, building scalable web platforms, or leveraging cloud-native infrastructure, my focus remains on technical excellence and rapid execution. I pride myself on delivering polished, high-quality systems that drive business value and exceed expectations.">
-                I specialize in transforming complex requirements into smooth, user-centric digital experiences. Whether
-                I’m designing secure API integrations, managing databases, building scalable web platforms, or
-                leveraging cloud-native infrastructure, my focus remains on technical excellence and rapid execution. I
-                pride myself on delivering polished, high-quality systems that drive business value and exceed
-                expectations.
+                data-text="I specialize in building scalable web architectures, secure RESTful APIs, and data-driven platforms using modern tools like Next.js, React, Django, TypeScript, and Supabase. Whether architecting database schemas or implementing cloud infrastructure, my focus remains on performance, maintainability, and clean user experiences.">
+                I specialize in building scalable web architectures, secure RESTful APIs, and data-driven platforms using modern tools like <span class="text-white fw-bold">Next.js, React, Django and TypeScript.</span>. Whether architecting database schemas or implementing cloud infrastructure, my focus remains on performance, maintainability, and clean user experiences.
               </p>
             </div>
           </div>
 
+          <!-- Right Column: Profile Visual -->
           <div class="hero-right-image reveal-right">
             <div class="profile-wrap glass-card">
-              <img src="{{ url_for('static', filename='images/profile.webp') }}" alt="Portrait of PEKIM"
-                class="profile-img">
+              <img src="{{ url_for('static', filename='images/profile.webp') }}" alt="Portrait of PEKIM" class="profile-img">
             </div>
           </div>
 
@@ -42,6 +40,7 @@
       </div>
     </section>
 
+    <!-- HOBBIES & INTERESTS SECTION -->
     <section class="hobbies-section mt-5">
       <div class="text-center mb-5 reveal-up">
         <p class="hero-greeting tech-type" data-text="Personal.interests">Personal.interests</p>
@@ -49,33 +48,39 @@
       </div>
 
       <div class="skills-container">
+        
+        <!-- Football -->
         <div class="skill-glass-card glass-card reveal-up">
           <div class="skill-icon icon-glow"><i class="fas fa-futbol"></i></div>
-          <h4 class="tech-type" data-text="1. Playing football">1. Playing football</h4>
+          <h4 class="tech-type text-center" data-text="1. Playing Football">1. Playing Football</h4>
         </div>
 
+        <!-- Research -->
         <div class="skill-glass-card glass-card reveal-up">
           <div class="skill-icon icon-glow"><i class="fas fa-search"></i></div>
-          <h4 class="tech-type" data-text="2. Doing broad-based research">2. Doing broad-based research</h4>
+          <h4 class="tech-type text-center" data-text="2. Broad-Based Research">2. Broad-Based Research</h4>
         </div>
 
+        <!-- Walking -->
         <div class="skill-glass-card glass-card reveal-up">
           <div class="skill-icon icon-glow"><i class="fas fa-walking"></i></div>
-          <h4 class="tech-type" data-text="3. Walking">3. Walking</h4>
+          <h4 class="tech-type text-center" data-text="3. Walking">3. Walking</h4>
         </div>
+
       </div>
     </section>
 
-
   </div>
 
+  <!-- ACTION CTA -->
   <div class="text-center mt-5 reveal-up">
     <a href="/resume" class="btn-primary-tech" style="text-decoration: none; display: inline-block;">
-      <i class="bi bi-file-earmark-person"></i> VIEW TECHNICAL DOSSIER
+      <i class="bi bi-file-earmark-person me-2"></i>VIEW TECHNICAL RESUME
     </a>
   </div>
 
-  <div class="tech-footer-accent reveal-up">
+  <!-- FOOTER ACCENT -->
+  <div class="tech-footer-accent reveal-up mt-5">
     <div class="line"></div>
     <div class="portfolio-year"><span class="dot pulse"></span> PORTFOLIO 2026</div>
     <div class="line"></div>
