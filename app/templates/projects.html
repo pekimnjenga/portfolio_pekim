@@ -64,29 +64,28 @@
         <div class="project-image-wrap">
           <img src="{{ url_for('static', filename='images/bmi_image.webp') }}" alt="BMI App" class="project-img">
           <div class="project-overlay">
-            <span class="tech-badge">Flask • JSON • HTML5/CSS3/Bootstrap 5 • Health Analytics </span>
+            <span class="tech-badge">Next.js 16 • React 19 • TypeScript • Tailwind CSS • Supabase Auth • jsPDF • Framer Motion</span>
           </div>
         </div>
         <div class="project-info">
           <h3 class="project-title">Health Analytics Tool</h3>
-          <p class="project-excerpt">A health informatics tool that computes BMI and dynamically renders clinical insights via a JSON-mapped logic engine. Strictly aligned with WHO protocols for adults(20-64 years old).</p>
-          
+          <p class="project-excerpt">A multilingual, authenticated BMI and body-composition decision-support tool for educational and informational use. The application combines adult BMI classification, pediatric BMI-for-age analysis, athlete-oriented body-composition estimates, assessment history, visualizations, PDF export, and Supabase authentication in a responsive Next.js interface.</p>
                 <div class="methodology-note mb-3 p-3" style="background: rgba(0, 255, 65, 0.03); border-left: 2px solid var(--neon-green); border-radius: 4px;">
-                    <p class="text-white small fw-bold mb-1"><i class="bi bi-graph-up me-2"></i> Statistical Methodology:</p>
+                    <p class="text-white small fw-bold mb-1"><i class="bi bi-graph-up me-2"></i> Disclaimer</p>
                     <p class="x-small text-secondary-alt mb-0" style="font-size: 0.75rem;">
-                        The <span class="text-white fw-bold">LMS Method(L-transformation, M-median, S-coefficient of variation)</span> serves as the computational engine for the roadmap below, transforming skewed biological distributions into standard normal Z-scores to derive precise percentiles across varying demographics.
+                       This is not a clinically validated medical device, diagnostic system, or substitute for professional medical advice. Results are estimates for educational and informational use only. Users should consult a qualified healthcare professional for medical decisions.
                     </p>
                 </div>
           
           <div class="mt-3 mb-4">
-              <p class="text-neon small fw-bold text-uppercase mb-1" style="font-size: 0.7rem;">Ongoing Data Science Implementation:</p>
+              <p class="text-neon small fw-bold text-uppercase mb-1" style="font-size: 0.7rem;">Key Features Implemented:</p>
               <p class="text-secondary-alt x-small mb-0" style="font-size: 0.75rem;">
-                Pediatric Logic(CDC/WHO LMS method) •	Athlete-aware variance overrides (LMS method) • Predictive Health Risk Modeling (ML) • Population Density Analysis • Geriatric functioal indicators • AI-Driven Lifestyle Personalization
+                Adult & Pediatric BMI Classification • Athlete Body-Composition Estimates • Assessment History & Visualizations • PDF Export • Multilingual Support • Supabase Authentication
               </p>
           </div>
 
           <div class="project-links">
-            <a href="https://pekim-bmicalculator.vercel.app/" target="_blank" class="view-link live">LAUNCH SYSTEM <i class="fas fa-external-link-alt"></i></a>
+            <a href="https://bmiengine.vercel.app/" target="_blank" class="view-link live">LAUNCH SYSTEM <i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
       </article>
@@ -127,3 +126,4 @@
   </div>
 </main>
 {% endblock %}
+

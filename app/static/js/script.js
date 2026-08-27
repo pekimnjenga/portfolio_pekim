@@ -91,30 +91,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.getElementById('mobile-toggle');
     const closeMenu = document.getElementById('close-menu');
     const navCollapse = document.getElementById('navbarNav');
+    const navBackdrop = document.getElementById('navBackdrop');
 
-    if (mobileToggle && navCollapse) {
-        mobileToggle.addEventListener('click', () => {
-            navCollapse.classList.add('active');
-            mobileToggle.classList.add('is-hidden');
-            document.body.style.overflow = 'hidden'; // Lock background scroll
-        });
-    }
+    let scrollLockY = 0; // Remember the page position so it's restored on close
 
-    if (closeMenu && navCollapse) {
-        closeMenu.addEventListener('click', () => {
-            navCollapse.classList.remove('active');
-            mobileToggle.classList.remove('is-hidden');
-            document.body.style.overflow = ''; // Unlock background scroll
-        });
-    }
+    const openMobileMenu = () => {
+        if (!navCollapse) return;
+        navCollapse.classList.add('active');
+        mobileToggle?.classList.add('is-hidden');
+        navBackdrop?.classList.add('show-open');
 
-    // Close menu when a link is clicked
+        // Lock the page exactly where it is so the background can't scroll underneath
+        scrollLockY = window.scrollY || document.documentElement.scrollTop;
+        document.body.style.top = `-${scrollLockY}px`;
+        document.body.classList.add('menu-open');
+    };
+
+    const closeMobileMenu = () => {
+        navCollapse?.classList.remove('active');
+        mobileToggle?.classList.remove('is-hidden');
+        navBackdrop?.classList.remove('show-open');
+
+        // Unlock the page and restore the original scroll position
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollLockY);
+    };
+
+    mobileToggle?.addEventListener('click', openMobileMenu);
+    closeMenu?.addEventListener('click', closeMobileMenu);
+    navBackdrop?.addEventListener('click', closeMobileMenu); // Tap outside the panel to close
+
+    // Close the menu when a link is clicked
     navCollapse?.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navCollapse.classList.remove('active');
-            mobileToggle.classList.remove('is-hidden');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMobileMenu);
     });
 
     // 5. SMART IMAGE OPTIMIZATION ENGINE

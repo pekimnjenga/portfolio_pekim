@@ -65,6 +65,37 @@ body {
 }
 .navbar-toggler.is-hidden { opacity: 0; visibility: hidden; }
 
+/* Full-screen backdrop that dims & blocks the page while the mobile menu is open */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  z-index: 1500;              /* below the panel (2000), above the navbar (1000) */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+.nav-backdrop.show-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Lock the page so it can't scroll while the mobile menu is open (iOS-safe) */
+body.menu-open {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
 /* Mobile Overlay Menu */
 @media (max-width: 991px) {
   .brand-container { max-width: 250px; }
@@ -101,11 +132,30 @@ body {
   }
 
   .btn-close-custom {
-    background: none; border: none; color: var(--neon);
-    font-size: 1.8rem; cursor: pointer;
-    transition: var(--transition);
+    background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 4px;
+    color: var(--silver);
+    transition: color var(--transition);
   }
-  .btn-close-custom:hover { transform: rotate(90deg); color: var(--white); }
+  .btn-close-custom .close-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 4px;
+    line-height: 1;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .btn-close-custom .close-label::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: var(--neon);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .btn-close-custom:hover { color: var(--white); }
+  .btn-close-custom:hover .close-label { color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+  .btn-close-custom:hover .close-label::after { transform: scaleX(1); }
 
   .navbar-nav { width: 100%; align-items: flex-start !important; }
   .nav-link { font-size: 1rem !important; margin: 1rem 0 !important; padding: 5px 0 !important; border-bottom: 1px solid rgba(0, 255, 136, 0.05); width: 100%; }
